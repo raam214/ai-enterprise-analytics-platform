@@ -1,8 +1,8 @@
 streamlit
 pandas
 numpy
+plotly
 sqlalchemy
 psycopg2-binary
 scikit-learn
-plotly
 python-dotenv

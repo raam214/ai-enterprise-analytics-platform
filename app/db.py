@@ -1,25 +1,27 @@
+import os
 from sqlalchemy import create_engine
+from dotenv import load_dotenv
 
-# Database connection details
-DB_USER = "postgres"
-DB_PASSWORD = "rAMA&1505"
-DB_HOST = "localhost"
-DB_PORT = "5432"
-DB_NAME = "enterprise_decision_intelligence"
+# Load .env file
+load_dotenv()
 
-# Create SQLAlchemy engine
-engine = create_engine(
-    f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
+DB_USER = os.getenv("DB_USER")
+DB_PASSWORD = os.getenv("DB_PASSWORD")
+DB_HOST = os.getenv("DB_HOST")
+DB_PORT = os.getenv("DB_PORT")
+DB_NAME = os.getenv("DB_NAME")
+
+# Safety check (VERY IMPORTANT)
+if not all([DB_USER, DB_PASSWORD, DB_HOST, DB_PORT, DB_NAME]):
+    raise ValueError("❌ Database environment variables not loaded properly")
+
+DATABASE_URL = (
+    f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}"
+    f"@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 )
+
+engine = create_engine(DATABASE_URL)
 
 
 def get_engine():
     return engine
-
-
-if __name__ == "__main__":
-    try:
-        engine.connect()
-        print("Database connection successful")
-    except Exception as e:
-        print("Database connection failed:", e)

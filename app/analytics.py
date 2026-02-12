@@ -1,5 +1,5 @@
 import pandas as pd
-from app.db import get_engine
+from db import get_engine
 from app.queries import (
     TOTAL_REVENUE,
     CUSTOMER_KPIS,

@@ -1,8 +1,7 @@
 import pandas as pd
 import numpy as np
 from sklearn.linear_model import LinearRegression
-from db import get_engine
-
+from app.db import get_engine
 
 engine = get_engine()
 

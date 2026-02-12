@@ -1,11 +1,12 @@
 import pandas as pd
 from db import get_engine
-from app.queries import (
-    TOTAL_REVENUE,
-    CUSTOMER_KPIS,
-    REVENUE_BY_REGION,
-    MONTHLY_REVENUE
+from queries import (
+    TOTAL_REVENUE_QUERY,
+    CUSTOMER_KPI_QUERY,
+    REVENUE_BY_REGION_QUERY,
+    MONTHLY_REVENUE_QUERY
 )
+
 
 engine = get_engine()
 

@@ -2,15 +2,15 @@ import streamlit as st
 import plotly.express as px
 import pandas as pd
 
-from analytics import (
+from app.analytics import (
     get_total_revenue,
     get_customer_kpis,
     revenue_by_region,
     monthly_revenue
 )
 
-from ml_model import predict_next_month_revenue
-from ai_insights import generate_ai_insights
+from app.ml_model import predict_next_month_revenue
+from app.ai_insights import generate_ai_insights
 
 
 # -------------------------------------------------
